@@ -357,6 +357,33 @@
   <script src="jwt-vanilla.js"></script>
   <script src="js/generateAndVerifyToken.js"></script>
   <script>
+  document.addEventListener('DOMContentLoaded', async function() {
+    const token = localStorage.getItem('jwt');
+
+    if (!token) {
+        alert('You are not logged in!');
+        window.location.href = 'login.html';
+        return;
+    }
+
+    try {
+        const response = await axios.get('http://localhost:5000/auth/${}', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        const data = response.data;
+        document.getElementById('profileData').textContent = JSON.stringify(data);
+    } catch (error) {
+        alert('Failed to fetch profile: ' + error.response.data.message);
+        localStorage.removeItem('jwt');
+        window.location.href = 'login.html';
+    }
+  });
+
+  </script>
+  <!--<script>
 
     let token = localStorage.getItem('jwtToken')
   /*   verifyToken(token, "hi@WshlliN$") cccc*/
@@ -378,19 +405,7 @@
           console.error('There was an error fetching the user data!', error);
         });
     });
-  </script>
-  <!--<script>
-      const response = {
-          name: 'Shrook',
-          age: 20,
-          email: '',
-          phone: '01213141115',
-          BirthDate: '14/09/2002'
-      }
-
-      $('#username').text(response.name);
-      $('#phone').text(response.phone);
-      </script>-->
+  </script>-->
 </body>
 
 </html>

@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                         </form>
-                        <script>
+                        <!--<script>
                             document.getElementById('loginForm').addEventListener('submit', function (event) {
                                 event.preventDefault(); // Prevent the form from submitting normally
 
@@ -107,6 +107,29 @@
                                         alert('Error logging in. Please try again.');
                                     });
                             });
+                        </script>-->
+                        <script>
+                        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+                            event.preventDefault();
+
+                            const email = document.getElementById('email').value;
+                            const password = document.getElementById('password').value;
+
+                            try {
+                                const response = await axios.post('http://localhost:5000/auth/login', {
+                                    email,
+                                    password
+                                });
+
+                                const { token } = response.data;
+
+                                localStorage.setItem('jwt', token);
+                                window.location.href = 'profile.html';
+                            } catch (error) {
+                                alert('Login failed: ' + error.response.data.message);
+                            }
+                        });
+
                         </script>
                     </div>
                 </div>
