@@ -60,6 +60,6 @@ export const login = asyncHandler(async (req, res, next) => {
         expiresIn: 60 * 60 * 24 * 360
     })
 
-    return res.status(200).json({ message: "Done" , refresh_token})
+    return res.status(200).json({ message: "Done", refresh_token, id: user._id })
 
 })

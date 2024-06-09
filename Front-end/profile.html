@@ -107,10 +107,10 @@
           <a href="#" class="nav-link " data-bs-toggle="dropdown">
             <img src="img/profileTest.jpg" alt="Custom Icon" class="icon-img me-3" style="max-height: 40px;">
           </a>
-            <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                <a href="profile.html" class="dropdown-item">Profile</a>
-                <a href="index.html" class="dropdown-item">Log Out</a>
-            </div>
+          <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+            <a href="profile.html" class="dropdown-item">Profile</a>
+            <a href="" class="dropdown-item" id="log-out">Log Out</a>
+          </div>
         </div>
       </div>
     </div>
@@ -125,8 +125,11 @@
       <div class="col-md-5">
         <div class="card mb-3">
           <div class="card-header">
-            <img src="img/profileTest.jpg" alt="Jane Moore" class="rounded-circle " width="100" height="100">
-            <strong id="username"> </strong>
+            <div style="display: inline-block; width: 100px; height: 100px">
+              <img style="object-fit: cover; width: 100%; height: 100%" src="img/profileTest.jpg" alt="Jane Moore"
+                class="rounded-circle ">
+            </div>
+            <strong id="username" style="display: inline-block"> </strong>
           </div>
           <div class="card-body icon-box">
             <h6>Contact Details: <a href="BasicInfoE.html" class=""><i class="fas fa-pen small"></i></a></h6>
@@ -357,37 +360,38 @@
   <!--<script src="jwt-vanilla.js"></script>
   <script src="js/generateAndVerifyToken.js"></script>-->
   <script>
-  document.addEventListener('DOMContentLoaded', async function() {
-    const token = localStorage.getItem('jwt');
+    document.addEventListener('DOMContentLoaded', async function () {
+      const token = localStorage.getItem('jwt');
 
-    if (!token) {
+      if (!token) {
         alert('You are not logged in!');
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
         return;
-    }
+      }
 
-    try {
-        const response = await axios.get('http://localhost:5000/auth/${}', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
+      try {
+        const userId = localStorage.getItem('id');
+        const response = await axios.get(`http://localhost:5000/auth/${userId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         });
 
-        const data = response.data;
-        document.getElementById('username').textContent = JSON.stringify(user.username);
-        document.getElementById('phone').textContent = JSON.stringify(user.phone);
-        document.getElementById('email').textContent = JSON.stringify(user.email);
-        document.getElementById('gender').textContent = JSON.stringify(user.gender);
-        document.getElementById('address').textContent = JSON.stringify(user.address);
-        document.getElementById('nationalID').textContent = JSON.stringify(user.nationalID);
-        document.getElementById('birthDate').textContent = JSON.stringify(user.birthDate);
+        const data = response.data.users;
+        document.getElementById('username').textContent = data.username;
+        document.getElementById('phone').textContent = data.phone;
+        document.getElementById('email').textContent = data.email;
+        document.getElementById('gender').textContent = data.gender;
+        document.getElementById('address').textContent = data.address;
+        document.getElementById('nationalID').textContent = data.nationalID;
+        document.getElementById('birthDate').textContent = data.birthDate;
 
-    } catch (error) {
+      } catch (error) {
         alert('Failed to fetch profile: ' + error.response.data.message);
         localStorage.removeItem('jwt');
         window.location.href = 'login.html';
-    }
-  });
+      }
+    });
 
   </script>
   <!--<script>
@@ -413,6 +417,7 @@
         });
     });
   </script>-->
+  <script src="js/logout.js"></script>
 </body>
 
 </html>
