@@ -354,8 +354,8 @@
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
-  <script src="jwt-vanilla.js"></script>
-  <script src="js/generateAndVerifyToken.js"></script>
+  <!--<script src="jwt-vanilla.js"></script>
+  <script src="js/generateAndVerifyToken.js"></script>-->
   <script>
   document.addEventListener('DOMContentLoaded', async function() {
     const token = localStorage.getItem('jwt');
@@ -374,7 +374,14 @@
         });
 
         const data = response.data;
-        document.getElementById('profileData').textContent = JSON.stringify(data);
+        document.getElementById('username').textContent = JSON.stringify(user.username);
+        document.getElementById('phone').textContent = JSON.stringify(user.phone);
+        document.getElementById('email').textContent = JSON.stringify(user.email);
+        document.getElementById('gender').textContent = JSON.stringify(user.gender);
+        document.getElementById('address').textContent = JSON.stringify(user.address);
+        document.getElementById('nationalID').textContent = JSON.stringify(user.nationalID);
+        document.getElementById('birthDate').textContent = JSON.stringify(user.birthDate);
+
     } catch (error) {
         alert('Failed to fetch profile: ' + error.response.data.message);
         localStorage.removeItem('jwt');
