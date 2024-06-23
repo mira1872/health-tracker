@@ -334,12 +334,13 @@
                 username: username,
                 birthDate: birthDate,
                 nationalID: nationalID,
+                phone: phone,
                 gender: gender,
                 email: email
             };
 
             // Make API call using Axios
-            axios.post('http://localhost:5000/user/getUserData', data)
+            axios.post('http://localhost:5000/user/updateUserData', data)
                 .then(response => {
                     // Handle successful signup
                     console.log('Signup successful:', response.data);
