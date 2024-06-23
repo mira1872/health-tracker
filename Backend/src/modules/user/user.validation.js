@@ -8,9 +8,9 @@ export const getUserData = joi.object({
     username: joi.string(),
     email: joi.string().email(),
     phone: joi.string().pattern(new RegExp(/^01[0125][0-9]{8}$/)),
-    family: joi.object({
+    family: joi.array().items({
         rev: joi.string().max(20),
-        _id: generalFields.id
+        nationalID: joi.string()
     }),
     nationalID: joi.string().max(20),
     gender: joi.string().valid('male', 'female'),

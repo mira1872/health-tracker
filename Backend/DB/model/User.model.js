@@ -80,10 +80,10 @@ const userSchema = new Schema({
 
 
     // family history
-    family: {
+    family:[ {
         rev: { type: String },
-        _id: { type: Types.ObjectId, ref: "User" }
-    },
+        nationalID: { type: String }
+    }],
     //{mom : id ,
     // dad : id ,
     // bro : id ,}
