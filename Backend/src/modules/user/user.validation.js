@@ -33,3 +33,7 @@ export const getAdminData = joi.object({
     allergies: joi.string(),
     chronicDisease: joi.string(),
 }).required()
+
+export const userProPic = joi.object({
+    file: generalFields.file
+})

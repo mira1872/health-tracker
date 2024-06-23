@@ -30,7 +30,7 @@ chronicDisease
 */
 
 const userSchema = new Schema({
-
+    profilePic: Object,
     username: {
         type: String,
         required: [true, 'Username is required'],

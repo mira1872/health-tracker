@@ -30,12 +30,16 @@ surgicalHistory: {
 
 allergies
 chronicDisease
+
+User update 
+Multer
+Qr
 */
 
 
 // get data from user
 export const getDataUser = asyncHandler(async (req, res, next) => {
-    const { 
+    const {
         username,
         email,
         phone,
@@ -68,4 +72,14 @@ export const getDataAdmin = asyncHandler(async (req, res, next) => {
 
 })
 
+//userProPic multer
+export const userProPic = asyncHandler(async (req, res, next) => {
 
+    if (!req.file) {
+        return next(new Error("Image is required", { cause: 409 }))
+    }
+
+    const user = await userModel.findByIdAndUpdate(req.user._id,
+        { profilePic: req.file.dest }, { new: true })
+    return res.status(201).json({ message: "Done", user })
+}) 
