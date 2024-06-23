@@ -76,6 +76,8 @@ const userSchema = new Schema({
     bloodType: { type: String },
     suffers: { type: String },
     currentMedicine: { type: String },
+    organDonor: { type: Boolean },
+
 
     // family history
     family: {

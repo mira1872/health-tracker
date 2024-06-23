@@ -1,13 +1,15 @@
 
 import userModel from "../../../../DB/model/User.model.js";
+import ApiFeatures from "../../../utils/apiFeatures.js";
 import { asyncHandler } from "../../../utils/errorHandling.js";
 import { createToken } from "../../../utils/generateAndVerifyToken.js";
 import { compare, hash } from "../../../utils/hashAndCompare.js";
+import QRCode from "qrcode"
 
+export const getUsers = asyncHandler(async (req, res, next) => {
 
-export const test = asyncHandler(async (req, res, next) => {
-
-    const users = await userModel.find({});
+    const apiFeature = new ApiFeatures(userModel.find({}), req.query).paginate().filter().sort().search().select()
+    const users = await apiFeature.mongooseQuery
 
     return res.status(200).json({ message: "Done", users: users })
 })
@@ -16,7 +18,11 @@ export const findUser = asyncHandler(async (req, res, next) => {
 
     const user = await userModel.findById(req.params.userId);
 
-    return res.status(200).json({ message: "Done", users: user })
+    QRCode.toDataURL(`${req.protocol}://${req.headers.host}/auth?_id=${req.params.userId}`, (err, url) => {
+        return res.status(200).json({ message: "Done", users: user, url: url })
+    })
+
+
 })
 
 

@@ -10,12 +10,12 @@ const userRouter = Router()
 
 /* userRouter.get("/",  userController.test ) */
 
-userRouter.post("/getUserData",
+userRouter.post("/updateUserData",
     auth(endpoint.getUserData),
     validation(validators.getUserData),
     userController.getDataUser)
 
-userRouter.post("/getAdminData",
+userRouter.post("/updateAdminData",
     auth(endpoint.getAdminData),
     validation(validators.getAdminData),
     userController.getDataAdmin)

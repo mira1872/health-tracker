@@ -32,6 +32,7 @@ export const getAdminData = joi.object({
 
     allergies: joi.string(),
     chronicDisease: joi.string(),
+    organDonor: joi.string(),
 }).required()
 
 export const userProPic = joi.object({

@@ -5,7 +5,7 @@ import * as validators from "./auth.validation.js"
 
 const authRouter = Router()
 
-authRouter.get("/",  authController.test )
+authRouter.get("/",  authController.getUsers )
 
 authRouter.get("/:userId",  authController.findUser )
 

@@ -37,7 +37,7 @@ Qr
 */
 
 
-// get data from user
+// update data from user
 export const getDataUser = asyncHandler(async (req, res, next) => {
     const {
         username,
@@ -53,7 +53,7 @@ export const getDataUser = asyncHandler(async (req, res, next) => {
 
 })
 
-// get data from doc
+// update data from doc
 export const getDataAdmin = asyncHandler(async (req, res, next) => {
     const {
         userId,
@@ -66,6 +66,7 @@ export const getDataAdmin = asyncHandler(async (req, res, next) => {
         surgicalHistory,
         allergies,
         chronicDisease,
+        organDonor
     } = req.body;
     const user = await userModel.findByIdAndUpdate(userId, req.body, { new: true })
     return res.status(201).json({ message: "Done", user });

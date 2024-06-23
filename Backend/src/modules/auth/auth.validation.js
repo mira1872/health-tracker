@@ -11,7 +11,7 @@ export const signUpSchema = joi.object({
     description: joi.object({
         title: joi.string().max(20),
         hospital: joi.string()
-    })
+    }),
 }).required()
 
 export const logInSchema = joi.object({
