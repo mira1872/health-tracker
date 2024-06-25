@@ -138,17 +138,19 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="date" class="form-control" name="BirthDate" id="birthDate"
+                                    <input type="date" class="form-control" name="birthDate" id="birthDate"
                                         placeholder="">
-                                    <label for="BirthDate">Birth Date</label>
+                                    <label for="birthDate">Birth Date</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label> Gender:</label>
-                                <input type="radio" id="gender" name="gender" value="male">
-                                <label for="male">Male</label>
-                                <input type="radio" id="gender" name="gender" value="female">
-                                <label for="female">Female</label>
+                                <fieldset id="gender">
+                                    <label> Gender:</label>
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Male</label>
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">Female</label>
+                                </fieldset>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
@@ -159,9 +161,9 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" name="NationalID" id="nationalID"
+                                    <input type="number" class="form-control" name="nationalID" id="nationalID"
                                         placeholder="NationalID">
-                                    <label for="NationalID">National ID</label>
+                                    <label for="nationalID">National ID</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -304,21 +306,27 @@
                 document.getElementById('username').value = data.username;
                 document.getElementById('phone').value = data.phone;
                 document.getElementById('email').value = data.email;
-                document.getElementById('gender').value = data.gender;
-                document.getElementById('address').value = data.address;
-                document.getElementById('nationalID').value = data.nationalID;
-                document.getElementById('birthDate').value = data.birthDate;
+                document.getElementById('nationalID').value = data.nationalID || '';
+                document.getElementById('birthDate').value = data.birthDate.substr(0, 10) || '';
+                if (data.gender) document.getElementById(data.gender).checked = true;
+                // document.getElementById('address').value = data.address;
 
             } catch (error) {
                 alert('Failed to fetch profile: ' + error.response.data.message);
-                localStorage.removeItem('jwt');
-                window.location.href = 'login.html';
             }
         }
         document.addEventListener('DOMContentLoaded', getUserData);
 
-        document.getElementById('Basicform').addEventListener('submit', function (event) {
+        document.getElementById('Basicform').addEventListener('submit', async function (event) {
             event.preventDefault(); // Prevent the form from submitting normally
+
+            const token = localStorage.getItem('jwt');
+
+            if (!token) {
+                alert('You are not logged in!');
+                window.location.href = 'index.html';
+                return;
+            }
 
             // Get form data
             const formData = new FormData(this);
@@ -331,28 +339,32 @@
 
             // Prepare data for POST request
             const data = {
-                username: username,
-                birthDate: birthDate,
-                nationalID: nationalID,
-                phone: phone,
-                gender: gender,
-                email: email
+                username: username || undefined,
+                birthDate: birthDate || undefined,
+                nationalID: nationalID || undefined,
+                phone: phone || undefined,
+                gender: gender || undefined,
+                email: email || undefined
             };
 
-            // Make API call using Axios
-            axios.post('http://localhost:5000/user/updateUserData', data)
-                .then(response => {
-                    // Handle successful signup
-                    console.log('Signup successful:', response.data);
-                    //alert('Signup successful!');
-                    // Redirect to another page
-                    window.location.href = 'profile.html'; // Change this URL to your desired page
+            try {
+
+                // Make API call using Axios
+                const response = await axios.post('http://localhost:5000/user/updateUserData', data, {
+                    headers: {
+                        'Authorization': `SAmir@__${token}`
+                    }
                 })
-                .catch(error => {
-                    // Handle error
-                    console.error('Error signing up:', error);
-                    alert('Error signing up. Please try again.');
-                });
+
+                if (response) {
+                    // alert('Saved successfully')
+                    // window.location.href = 'profile.html'; // Change this URL to your desired page
+                }
+            } catch (error) {
+                // Handle error
+                console.error('Error saving details:', error.response.data.message);
+                alert('Error saving details. Please try again.');
+            }
         });
     </script>
     <script src="js/logout.js"></script>

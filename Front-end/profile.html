@@ -97,10 +97,10 @@
         <div class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Technology </a>
           <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-              <a href="CardTech.html" class="dropdown-item">EMed-T Card</a>
-              <a href="SolarTech.html" class="dropdown-item">EMed-T Solar System</a>
+            <a href="CardTech.html" class="dropdown-item">EMed-T Card</a>
+            <a href="SolarTech.html" class="dropdown-item">EMed-T Solar System</a>
           </div>
-      </div>
+        </div>
         <a href="contact.html" class="nav-item nav-link">Contact Us</a>
         <a href="about.html" class="nav-item nav-link">About Us</a>
         <div class="nav-item dropdown">
@@ -132,11 +132,11 @@
             <strong id="username" style="display: inline-block"> </strong>
           </div>
           <div class="card-body icon-box">
-            <h6>Contact Details: <a href="BasicInfoE.html" class=""><i class="fas fa-pen small"></i></a></h6>
+            <h5>Contact Details: <a href="BasicInfoE.html" class=""><i class="fas fa-pen small"></i></a></h5>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><i class="fas fa-mobile-alt"></i> <span id="phone"> </span> </li>
               <li class="list-group-item"><i class="fas fa-envelope-open"></i> <span id="email"> </span> </li>
-              <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <span id="address"> </span></li>
+              <!--<li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <span id="address"> </span></li>-->
               <li class="list-group-item"><i class="fas fa-calendar"></i> <span id="birthDate"> </span></li>
               <li class="list-group-item"><i class="fas fa-arrow-right"></i> <span id="gender"> </span></li>
               <li class="list-group-item"><i class="fas fa-info"></i> <span id="nationalID"> </span></li>
@@ -145,31 +145,33 @@
         </div>
         <div class="card mb-4">
           <div class="card-header">
-            <h5 class="card-title"> Basic physical information </h5>
+            <h4 class="card-title"> Relative <a href="relativeInfoE.html"><i class="fas fa-pen small"></i></a> </h4>
           </div>
           <div class="card-body">
-            <div class="row">
-              <div class="col-md-4">
-                <p>blood type:
-                <h5 id="bloodType"></h5>
-                </p>
-              </div>
-              <div class="col-md-4">
-                <p>weight:
-                <h5 id="weight"></h5>
-                </p>
-              </div>
-              <div class="col-md-4">
-                <p>Hight:
-                <h5 id="height"></h5>
-                </p>
-              </div>
-              <div class="col-md-4">
-                <p>Hight:
-                <h5 id="height"></h5>
-                </p>
-              </div>
-
+            <div class="col-md-12 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel1name">
+              </h5>
+              <p style="display: inline;" id="rel1id"></p>
+            </div>
+            <div class="col-md-12 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel2name">
+              </h5>
+              <p style="display: inline;" id="rel2id"></p>
+            </div>
+            <div class="col-md-12 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel3name">
+              </h5>
+              <p style="display: inline;" id="rel3id"></p>
+            </div>
+            <div class="col-md-12 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel4name">
+              </h5>
+              <p style="display: inline;" id="rel4id"></p>
+            </div>
+            <div class="col-md-12 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel5name">
+              </h5>
+              <p style="display: inline;" id="rel5id"></p>
             </div>
           </div>
         </div>
@@ -178,31 +180,26 @@
         <div class=" mb-3">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">relative <a href="relativeInfoE.html"><i class="fas fa-pen small"></i></a></h4>
+              <h4 class="card-title"> Basic physical information </h4>
             </div>
             <div class="card-body">
               <div class="row">
                 <div class="col-md-4">
-                  <p>Name:
-                  <h5>Mira N</h5>
-                  </p>
-                  <p>Date of Birth:
-                  <h5>10/03/1987</h5>
+                  <p>Blood Type:
+                  <h5 id="bloodType"></h5>
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>Gender:
-                  <h5>Female</h5>
-                  </p>
-                  <p>Phone:
-                  <h5>012555342</h5>
+                  <p>Weight:
+                  <h5 id="weight"></h5>
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>Address:
-                  <h5>Hayfever, Crayfish</h5>
+                  <p>Hight:
+                  <h5 id="height"></h5>
                   </p>
                 </div>
+
               </div>
             </div>
           </div>
@@ -215,55 +212,36 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-md-4">
-                  <p>heart and vessels:
-                  <h5>empty</h5>
+                  <p>Suffers:
+                  <h5 id="suffers"></h5>
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>internal disease:
-                  <h5>empty</h5>
+                  <p>Current Medicine:
+                  <h5 id="currentMedicine"></h5>
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>dermal:
-                  <h5>empty</h5>
+                  <p>Surgical History:
+                  <h5 id="surgicalHistory"></h5>
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>bone & joint:
-                  <h5>empty</h5>
+                  <p>Allergies:
+                  <h5 id="allergies"></h5>
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>neurological:
-                  <h5>empty</h5>
+                  <p>Chronic Disease:
+                  <h5 id="chronicDisease"></h5>
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>psychiatry:
-                  <h5>empty</h5>
+                  <p>Organ Donor:
+                  <h5 id="organDonor"></h5>
                   </p>
                 </div>
-                <div class="col-md-4">
-                  <p>tooth:
-                  <h5>empty</h5>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                  <p>chest disease:
-                  <h5>empty</h5>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                  <p>hematologic disease:
-                  <h5>empty</h5>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                  <p>oncology:
-                  <h5>empty</h5>
-                  </p>
-                </div>
+
               </div>
             </div>
           </div>
@@ -273,7 +251,11 @@
 
     <h5><i class="fa fa-star small" style=" color: rgb(223, 83, 83);"></i> Note: You can not edit your medical data.
       Visit your doctor or the nearest hospital for checking and updating your medical info.<a href="findUs.html">Find
-        Us..</a></h5>
+        Us..</a>
+    </h5>
+    <h5><i class="fa fa-star small" style=" color: rgb(223, 83, 83);"></i> Show your NFC data <a href="NFC.html">Click
+        here</a>
+    </h5>
   </div>
 
 
@@ -382,14 +364,17 @@
         document.getElementById('phone').textContent = data.phone;
         document.getElementById('email').textContent = data.email;
         document.getElementById('gender').textContent = data.gender;
-        document.getElementById('address').textContent = data.address;
+        // document.getElementById('address').textContent = data.address;
         document.getElementById('nationalID').textContent = data.nationalID;
-        document.getElementById('birthDate').textContent = data.birthDate;
+        document.getElementById('birthDate').textContent = data.birthDate.substr(0, 10);
+
+        for (let i = 1; i <= data.family.length; i++) {
+          document.getElementById(`rel${i}name`).textContent = data.family[i - 1].rev + ": ";
+          document.getElementById(`rel${i}id`).textContent = data.family[i - 1].nationalID;
+        }
 
       } catch (error) {
         alert('Failed to fetch profile: ' + error.response.data.message);
-        localStorage.removeItem('jwt');
-        window.location.href = 'login.html';
       }
     });
 
