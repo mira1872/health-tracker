@@ -123,123 +123,56 @@
 
     <div class="container pt-5">
         <h2>Complete your profile..</h2>
-        <div class="row g-4 pt-2 mb-4">
+        <div class="row g-4 pt-2">
             <div class="col-md-6 offset-md-3 wow fadeIn" data-wow-delay="0.1s">
                 <div class="bg-light rounded p-5 bg-light">
-                    <h3 class="mb-4">Relatives/Friends Information</h3>
-                    <form id="relativesForm">
+                    <h3 class="mb-4">Medical Information..</h3>
+                    <form id="medForm">
                         <div class="row g-3">
                             <div class="col-12">
-                                <p class="mt-3">Relative 1</p>
                                 <div class="form-floating ">
-                                    <input type="text" class="form-control" name="rel1name" id="rel1name"
-                                        placeholder="Name">
-                                    <label for="rel1name">Relative Name</label>
+                                    <input type="text" class="form-control" name="suffers" id="suffers"
+                                        placeholder="Suffers">
+                                    <label for="suffers">Enter suffers</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating ">
-                                    <input type="text" maxlength="14" minlength="14" class="form-control" name="rel1id" id="rel1id"
-                                        placeholder="National ID">
-                                    <label for="relname">Relative National ID</label>
+                                    <input type="text" class="form-control" name="currentMedicine" id="currentMedicine"
+                                        placeholder="Current medicine">
+                                    <label for="currentMedicine">Enter current medicine</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating ">
-                                    <input type="text" maxlength="11" minlength="11" class="form-control" name="rel1phone" id="rel1phone"
-                                        placeholder="Relative phone">
-                                    <label for="relname">Relative phone</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <p class="mt-3">Relative 2</p>
-                                <div class="form-floating ">
-                                    <input type="text" class="form-control" name="rel2name" id="rel2name"
-                                        placeholder="Name">
-                                    <label for="rel2name">Relative Name</label>
+                                    <input type="text" class="form-control" name="surgicalHistory" id="surgicalHistory"
+                                        placeholder="Surgical history">
+                                    <label for="surgicalHistory">Enter surgical history</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating ">
-                                    <input type="text" class="form-control" maxlength="14" minlength="14" name="rel2id" id="rel2id"
-                                        placeholder="National ID">
-                                    <label for="relname">Relative National ID</label>
+                                    <input type="text" class="form-control" name="allergies" id="allergies"
+                                        placeholder="Allergies">
+                                    <label for="allergies">Enter allergies</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating ">
-                                    <input type="text" maxlength="11" minlength="11" class="form-control" name="rel2phone" id="rel2phone"
-                                        placeholder="Relative phone">
-                                    <label for="relname">Relative phone</label>
+                                    <input type="text" class="form-control" name="chronicDisease" id="chronicDisease"
+                                        placeholder="Chronic disease">
+                                    <label for="chronicDisease">Enter chronic disease</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <p class="mt-3">Relative 3</p>
-                                <div class="form-floating ">
-                                    <input type="text" class="form-control" name="rel3name" id="rel3name"
-                                        placeholder="Name">
-                                    <label for="rel3name">Relative Name</label>
-                                </div>
+                                <fieldset id="organDonor">
+                                    <label> Organ donor:</label>
+                                    <input type="radio" id="True" name="organDonor" value="True">
+                                    <label for="True">True</label>
+                                    <input type="radio" id="False" name="organDonor" value="False">
+                                    <label for="False">False</label>
+                                </fieldset>
                             </div>
-                            <div class="col-12">
-                                <div class="form-floating ">
-                                    <input type="text" class="form-control" maxlength="14" minlength="14" name="rel3id" id="rel3id"
-                                        placeholder="National ID">
-                                    <label for="relname">Relative National ID</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating ">
-                                    <input type="text" maxlength="11" minlength="11" class="form-control" name="rel3phone" id="rel3phone"
-                                        placeholder="Relative phone">
-                                    <label for="relname">Relative phone</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <p class="mt-3">Relative 4</p>
-                                <div class="form-floating ">
-                                    <input type="text" class="form-control" name="rel4name" id="rel4name"
-                                        placeholder="Name">
-                                    <label for="rel4name">Relative Name</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating ">
-                                    <input type="text" class="form-control" maxlength="14" minlength="14" name="rel4id" id="rel4id"
-                                        placeholder="National ID">
-                                    <label for="relname">Relative National ID</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating ">
-                                    <input type="text" maxlength="11" minlength="11" class="form-control" name="rel4phone" id="rel4phone"
-                                        placeholder="Relative phone">
-                                    <label for="relname">Relative phone</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <p class="mt-3">Relative 5</p>
-                                <div class="form-floating ">
-                                    <input type="text" class="form-control" name="rel5name" id="rel5name"
-                                        placeholder="Name">
-                                    <label for="rel5name">Relative Name</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating ">
-                                    <input type="text" class="form-control" maxlength="14" minlength="14" name="rel5id" id="rel5id"
-                                        placeholder="National ID">
-                                    <label for="relname">Relative National ID</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating ">
-                                    <input type="text" maxlength="11" minlength="11" class="form-control" name="rel5phone" id="rel5phone"
-                                        placeholder="Relative phone">
-                                    <label for="relname">Relative phone</label>
-                                </div>
-                            </div>
-
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Save change</button>
                             </div>
@@ -248,12 +181,6 @@
                 </div>
             </div>
         </div>
-        <h5><i class="fa fa-star small" style=" color: rgb(223, 83, 83);"></i> Note: that it is preferable to fill out
-            for more than one person.</h5>
-        <h5><i class="fa fa-star small" style=" color: rgb(223, 83, 83);"></i> It’s recommended to fill out for a
-            donor-close relative/friend-with a matching blood-type as you.</h5>
-        <h5><i class="fa fa-star small" style=" color: rgb(223, 83, 83);"></i> However fill out for someone who would
-            has the highest rate of response.</h5>
     </div>
 
     </div>
@@ -345,7 +272,7 @@
     <script src="js/main.js"></script>
     <script>
         async function getUserData() {
-            const token = localStorage.getItem('jwt')
+            const token = localStorage.getItem('jwt');
 
             if (!token) {
                 alert('You are not logged in!');
@@ -353,28 +280,30 @@
                 return;
             }
 
-            const userId = localStorage.getItem('id');
-            await axios.get(`http://localhost:5000/auth/${userId}`, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            }).then((response) => {
-                const familyData = response.data.users.family
-                if (Array.isArray(familyData) && familyData.length > 0) {
-                    // For the length of family array, get relative inputs
-                    // and add relative names and ids to it
-                    for (let i = 1; i <= familyData.length; i++) {
-                        document.getElementById(`rel${i}name`).value = familyData[i - 1].rev || '';
-                        document.getElementById(`rel${i}id`).value = familyData[i - 1].nationalID || '';
+            try {
+                const userId = localStorage.getItem('id');
+                const response = await axios.get(`http://localhost:5000/auth/${userId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
                     }
-                }
-            }).catch((error) => {
+                });
+
+                const data = response.data.users;
+                document.getElementById('suffers').value = data.suffers || '';
+                document.getElementById('currentMedicine').value = data.currentMedicine || '';
+                document.getElementById('surgicalHistory').value = data.surgicalHistory || '';
+                document.getElementById('allergies').value = data.allergies || '';
+                document.getElementById('chronicDisease').value = data.chronicDisease || '';
+                if (data.organDonor) document.getElementById(data.organDonor).checked = true;
+                // document.getElementById('address').value = data.address;
+
+            } catch (error) {
                 alert('Failed to fetch profile: ' + error.response.data.message);
-            })
+            }
         }
         document.addEventListener('DOMContentLoaded', getUserData);
 
-        async function updateUserFamily(event) {
+        document.getElementById('medForm').addEventListener('submit', async function (event) {
             event.preventDefault(); // Prevent the form from submitting normally
 
             const token = localStorage.getItem('jwt');
@@ -385,33 +314,29 @@
                 return;
             }
 
-            // Get form relatives length
-            const relativeInputCount = event.target.querySelectorAll('input').length / 3
-
             // Get form data
             const formData = new FormData(this);
+            const suffers = formData.get('suffers');
+            const currentMedicine = formData.get('currentMedicine');
+            const surgicalHistory = formData.get('surgicalHistory');
+            const allergies = formData.get('allergies');
+            const chronicDisease = formData.get('chronicDisease');
+            const organDonor = formData.get('organDonor');
 
-            const familyData = [];
-
-            for (let i = 1; i <= relativeInputCount; i++) {
-                if (!formData.get(`rel${i}name`)) continue;
-                familyData.push(
-                    {
-                        rev: formData.get(`rel${i}name`),
-                        nationalID: formData.get(`rel${i}id`),
-                        revPhone: formData.get(`rel${i}phone`)
-                    }
-                )
-            }
             // Prepare data for POST request
             const data = {
-                family: familyData
+                suffers: suffers || undefined,
+                currentMedicine: currentMedicine || undefined,
+                surgicalHistory: surgicalHistory || undefined,
+                allergies: allergies || undefined,
+                chronicDisease: chronicDisease || undefined,
+                organDonor: organDonor || undefined
             };
 
             try {
 
                 // Make API call using Axios
-                const response = await axios.post('http://localhost:5000/user/updateUserData', data, {
+                const response = await axios.post('http://localhost:5000/user/updateAdminData', data, {
                     headers: {
                         'Authorization': `SAmir@__${token}`
                     }
@@ -423,11 +348,10 @@
                 }
             } catch (error) {
                 // Handle error
-                console.error('Error saving relative detils:', error.response.data.message);
-                alert('Error saving relative detils. Please try again.');
+                console.error('Error saving details:', error.response.data.message);
+                alert('Error saving details. Please try again.');
             }
-        }
-        document.getElementById('relativesForm').addEventListener('submit', updateUserFamily);
+        });
     </script>
     <script src="js/logout.js"></script>
 </body>

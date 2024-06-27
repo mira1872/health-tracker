@@ -142,7 +142,7 @@
             <div class="row g-4 mb-4">
                 <div class="col-lg-8 col-md-8 wow fadeInUp " data-wow-delay="0.1s">
                     <div class="service-item bg-white rounded h-100 p-5">
-                        <h2 class="mb-3" id="">card name</h2>
+                        <h2 class="mb-3" id="username">name</h2>
                         <p class="mb-4">Save your information and medical history in one place</p>
                         <div class="row col-12"><a class="btn btn-lg btn-primary btn-lg-square w-50 col-md-6 col-lg-6" href="profile.html">View profile</a></div>
 
@@ -283,6 +283,33 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/logout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+          const token = localStorage.getItem('jwt');
+    
+          if (!token) {
+            alert('You are not logged in!');
+            window.location.href = 'index.html';
+            return;
+          }
+    
+          try {
+            const userId = localStorage.getItem('id');
+            const response = await axios.get(`http://localhost:5000/auth/${userId}`, {
+              headers: {
+                'Authorization': `Bearer ${token}`
+              }
+            });
+    
+            const data = response.data.users;
+            document.getElementById('username').textContent = data.username;
+    
+          } catch (error) {
+            alert('Failed to fetch profile: ' + error.response.data.message);
+          }
+        });
+    
+      </script>
 </body>
 
-</html>
+</html> 

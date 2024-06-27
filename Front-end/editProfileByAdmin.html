@@ -132,7 +132,7 @@
             <strong id="username" style="display: inline-block ; text-transform: capitalize;"> </strong>
           </div>
           <div class="card-body icon-box">
-            <h5>Contact Details: <a href="BasicInfoE.html" class=""><i class="fas fa-pen small"></i></a></h5>
+            <h5>Contact Details: </h5>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><i class="fas fa-mobile-alt"></i> <span id="phone"> </span> </li>
               <li class="list-group-item"><i class="fas fa-envelope-open"></i> <span id="email"> </span> </li>
@@ -145,7 +145,7 @@
         </div>
         <div class="card mb-4">
           <div class="card-header">
-            <h4 class="card-title"> Relative <a href="relativeInfoE.html"><i class="fas fa-pen small"></i></a> </h4>
+            <h4 class="card-title"> Relative </h4>
           </div>
           <div class="card-body">
             <div class="col-md-12 mb-2">
@@ -180,7 +180,7 @@
         <div class=" mb-3">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title"> Basic physical information </h4>
+              <h4 class="card-title"> Basic physical information <a href="physicalEdit.html"><i class="fas fa-pen small"></i></a></h4>
             </div>
             <div class="card-body">
               <div class="row">
@@ -207,7 +207,7 @@
         <div class="">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">Medical Info/history </h4>
+              <h4 class="card-title">Medical Info/history <a href="MedicalEdit.html"><i class="fas fa-pen small"></i></a></h4>
             </div>
             <div class="card-body">
               <div class="row">
@@ -372,6 +372,7 @@
           document.getElementById(`rel${i}name`).textContent = data.family[i - 1].rev + ": ";
           document.getElementById(`rel${i}id`).textContent = data.family[i - 1].nationalID;
         }
+
         document.getElementById('suffers').value = data.suffers || '';
         document.getElementById('currentMedicine').value = data.currentMedicine || '';
         document.getElementById('surgicalHistory').value = data.surgicalHistory || '';
