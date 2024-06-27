@@ -195,7 +195,7 @@
 
         for (let i = 1; i <= data.family.length; i++) {
           document.getElementById(`rel${i}name`).textContent = data.family[i - 1].rev + ": ";
-          document.getElementById(`rel${i}phone`).textContent = data.family[i - 1].phone;
+          document.getElementById(`rel${i}phone`).textContent = data.family[i - 1].revPhone;
         }
         document.getElementById('suffers').value = data.suffers || '';
         document.getElementById('currentMedicine').value = data.currentMedicine || '';
