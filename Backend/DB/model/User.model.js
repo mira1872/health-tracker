@@ -82,7 +82,8 @@ const userSchema = new Schema({
     // family history
     family:[ {
         rev: { type: String },
-        nationalID: { type: String }
+        nationalID: { type: String },
+        revPhone: { type: String },
     }],
     //{mom : id ,
     // dad : id ,
