@@ -47,7 +47,7 @@
 
 
   <!-- Topbar Start -->
-  <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
+  <!--<div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
     <div class="row gx-0 d-none d-lg-flex">
       <div class="col-lg-7 px-5 text-start">
         <div class="h-100 d-inline-flex align-items-center py-3 me-4">
@@ -76,7 +76,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
   <!-- Topbar End -->
 
 
@@ -85,46 +85,59 @@
   <div class="container pt-5 ">
     <div class="row mb-4 col-12">
         <div class="col-md-6 offset-md-3 wow fadeIn">
-          <div class="card">
-            <!--<div class="card-header">
-              <h4 class="card-title">Medical Info/history.. </h4>
-            </div>-->
-            <div class="card-body">
-              <div class="row">
-                <div class="">
-                  <p>Name:
-                  <h5 id=""></h5>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                  <p>Current Medicine:
-                  <h5 id="currentMedicine"></h5>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                  <p>Surgical History:
-                  <h5 id="surgicalHistory"></h5>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                  <p>Allergies:
-                  <h5 id="allergies"></h5>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                  <p>Chronic Disease:
-                  <h5 id="chronicDisease"></h5>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                  <p>Organ Donor:
-                  <h5 id="organDonor"></h5>
-                  </p>
-                </div>
-                
-              </div>
+          <h3 class="mb-4  align-items-center">رقم الاسعاف: 122</h3>
+          <div class="card mb-3">
+            <div class="card-header">
+              
+              <strong id="username" style="display: inline-block ; text-transform: capitalize;"> </strong>
+            </div>
+            <div class="card-body icon-box">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"> 
+                  <p style="display: inline;" >National ID:  </p>
+                  <h5 style="display: inline;" id="nationalID"></h5>
+                 </li>
+                <li class="list-group-item">
+                  <div>
+                    <h5 style="display: inline; text-transform: capitalize;" id="rel1name">
+                    </h5>
+                    <p style="display: inline;" id="rel1phone"></p> 
+                  </div>
+                  <div>
+                    <h5 style="display: inline; text-transform: capitalize;" id="rel2name">
+                    </h5>
+                    <p style="display: inline;" id="rel2phone"></p> 
+                  </div>
+                  <div>
+                    <h5 style="display: inline; text-transform: capitalize;" id="rel3name">
+                    </h5>
+                    <p style="display: inline;" id="rel3phone"></p> 
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <p style="display: inline;" >Blood Type: </p>
+                  <h5 style="display: inline;" id="bloodType"></h5>
+                </li>
+                <li class="list-group-item">
+                  <p style="display: inline;">Suffers:</p>
+                  <h5 style="display: inline;" id="suffers"></h5>
+                </li>
+                <li class="list-group-item">
+                  <p style="display: inline;">Current Medicine:</p>
+                  <h5 style="display: inline;" id="currentMedicine"></h5>
+                </li>
+                <li class="list-group-item">
+                  <p style="display: inline;">Allergies:</p>
+                  <h5 style="display: inline;" id="allergies"></h5>
+                </li>
+                <li class="list-group-item">
+                  <p style="display: inline;">Chronic Disease:</p>
+                  <h5 style="display: inline;" id="chronicDisease"></h5>
+                </li>
+              </ul>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -153,7 +166,7 @@
   <script src="js/main.js"></script>
   <!--<script src="jwt-vanilla.js"></script>
   <script src="js/generateAndVerifyToken.js"></script>-->
-  <!--<script>
+  <script>
     document.addEventListener('DOMContentLoaded', async function () {
       const token = localStorage.getItem('jwt');
 
@@ -173,21 +186,33 @@
 
         const data = response.data.users;
         document.getElementById('username').textContent = data.username;
-        document.getElementById('phone').textContent = data.phone;
-        document.getElementById('email').textContent = data.email;
-        document.getElementById('gender').textContent = data.gender;
-        document.getElementById('address').textContent = data.address;
+        //document.getElementById('phone').textContent = data.phone;
+        //document.getElementById('email').textContent = data.email;
+        //document.getElementById('gender').textContent = data.gender;
+        // document.getElementById('address').textContent = data.address;
         document.getElementById('nationalID').textContent = data.nationalID;
-        document.getElementById('birthDate').textContent = data.birthDate;
+        //document.getElementById('birthDate').textContent = data.birthDate.substr(0, 10);
+
+        for (let i = 1; i <= data.family.length; i++) {
+          document.getElementById(`rel${i}name`).textContent = data.family[i - 1].rev + ": ";
+          document.getElementById(`rel${i}phone`).textContent = data.family[i - 1].phone;
+        }
+        document.getElementById('suffers').value = data.suffers || '';
+        document.getElementById('currentMedicine').value = data.currentMedicine || '';
+        //document.getElementById('surgicalHistory').value = data.surgicalHistory || '';
+        document.getElementById('allergies').value = data.allergies || '';
+        document.getElementById('chronicDisease').value = data.chronicDisease || '';
+        //if (data.organDonor) document.getElementById(data.organDonor).checked = true;
+        //document.getElementById('weight').value = data.weight  || '';
+        //document.getElementById('height').value = data.height || '';
+        if (data.bloodType) document.getElementById(data.bloodType).checked = true;
 
       } catch (error) {
         alert('Failed to fetch profile: ' + error.response.data.message);
-        localStorage.removeItem('jwt');
-        window.location.href = 'index.html';
       }
     });
 
-  </script>-->
+  </script>
   <!--<script>
 
     let token = localStorage.getItem('jwtToken')
