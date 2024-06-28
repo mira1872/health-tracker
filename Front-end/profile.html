@@ -376,15 +376,17 @@ id="searchBtn" style="flex-grow: 1;">
           document.getElementById(`rel${i}name`).textContent = data.family[i - 1].rev + ": ";
           document.getElementById(`rel${i}id`).textContent = data.family[i - 1].nationalID;
         }
-        document.getElementById('suffers').value = data.suffers || '';
-        document.getElementById('currentMedicine').value = data.currentMedicine || '';
-        document.getElementById('surgicalHistory').value = data.surgicalHistory || '';
-        document.getElementById('allergies').value = data.allergies || '';
-        document.getElementById('chronicDisease').value = data.chronicDisease || '';
-        if (data.organDonor) document.getElementById(data.organDonor).checked = true;
-        document.getElementById('weight').value = data.weight  || '';
-        document.getElementById('height').value = data.height || '';
-        if (data.bloodType) document.getElementById(data.bloodType).checked = true;
+        document.getElementById('suffers').textContent = data.suffers || '';
+        document.getElementById('currentMedicine').textContent = data.currentMedicine || '';
+        document.getElementById('surgicalHistory').textContent = data.surgicalHistory || '';
+        document.getElementById('allergies').textContent = data.allergies || '';
+        document.getElementById('chronicDisease').textContent = data.chronicDisease || '';
+        document.getElementById('weight').textContent = data.weight  || '';
+        document.getElementById('height').textContent = data.height || '';
+        document.getElementById('bloodType').textContent = data.bloodType || '';
+        document.getElementById('organDonor').textContent = data.organDonor ? 'Yes' : 'No';
+        //if (data.bloodType) document.getElementById(data.bloodType).textContent = true;
+        //if (data.organDonor) document.getElementById(data.organDonor).textContent = true;
 
       } catch (error) {
         alert('Failed to fetch profile: ' + error.response.data.message);
