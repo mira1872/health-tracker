@@ -31,6 +31,7 @@ chronicDisease
 
 const userSchema = new Schema({
     profilePic: Object,
+    medicalTests: Object,
     username: {
         type: String,
         required: [true, 'Username is required'],

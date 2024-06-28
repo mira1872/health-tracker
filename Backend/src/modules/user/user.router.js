@@ -27,4 +27,12 @@ userRouter.post("/userProPic",
     fileUpload("user/profile", fileValidation.image).single("image"),
     userController.userProPic)
 
+
+//userProPic multer
+userRouter.post("/medicalTests",
+    auth(endpoint.medicalTests),
+    validation(validators.medicalTests),
+    fileUpload("user/medical-tests", fileValidation.file).single("file"),
+    userController.medicalTests)
+
 export default userRouter
