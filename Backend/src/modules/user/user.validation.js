@@ -26,7 +26,7 @@ export const getAdminData = joi.object({
     bloodType: joi.string(),
     suffers: joi.string(),
     currentMedicine: joi.string(),
-    surgicalHistory: joi.object({
+    surgicalHistory: joi.array().items({
         surgeryType: joi.string(),
         dateOfSurgery: joi.string(),
     }),
