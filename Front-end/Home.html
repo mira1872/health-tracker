@@ -88,11 +88,10 @@
             </h2>
         </a>
 
-        <div class="ms-auto text-end mx-2" 
-id="searchBtn" style="flex-grow: 1;">
-      
+        <div class="ms-auto text-end mx-2" id="searchBtn" style="flex-grow: 1;">
+
         </div>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -290,7 +289,7 @@ id="searchBtn" style="flex-grow: 1;">
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-   
+
     <script>
         document.addEventListener('DOMContentLoaded', async function () {
             const token = localStorage.getItem('jwt');
@@ -311,8 +310,12 @@ id="searchBtn" style="flex-grow: 1;">
 
                 const data = response.data.users;
                 document.getElementById('username').textContent = data.username;
-                if(data.role === 'admin'){
+                if (data.role === 'admin') {
                     localStorage.setItem('au', true)
+                    const searchBtn = document.getElementById('searchBtn');
+                    if (searchBtn) {
+                        searchBtn.innerHTML = `<a href="SearchUser.html"><i class="fa fa-search"></i></a>`;
+                    }
                 }
 
             } catch (error) {
@@ -321,7 +324,7 @@ id="searchBtn" style="flex-grow: 1;">
         });
 
     </script>
-     <script src="js/logout.js"></script>
+    <script src="js/logout.js"></script>
 </body>
 
 </html>
