@@ -89,11 +89,15 @@
             </h2>
         </a>
 
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <div class="ms-auto text-end mx-2" 
+id="searchBtn" style="flex-grow: 1;">
+      
+    </div>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <div class="navbar-nav ms-auto p-4 p-lg-0 d-flex align-items-center">
                 <a href="Home.html" class="nav-item nav-link">Home</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Technology </a>
@@ -167,10 +171,10 @@
                             <div class="col-12">
                                 <fieldset id="organDonor">
                                     <label> Organ donor:</label>
-                                    <input type="radio" id="True" name="organDonor" value="True">
-                                    <label for="True">True</label>
-                                    <input type="radio" id="False" name="organDonor" value="False">
-                                    <label for="False">False</label>
+                                    <input type="radio" id="true" name="organDonor" value="true">
+                                    <label for="true">True</label>
+                                    <input type="radio" id="false" name="organDonor" value="false">
+                                    <label for="false">False</label>
                                 </fieldset>
                             </div>
                             <div class="col-12">
@@ -281,7 +285,7 @@
             }
 
             try {
-                const userId = localStorage.getItem('id');
+                const userId = localStorage.getItem('searchId');
                 const response = await axios.get(`http://localhost:5000/auth/${userId}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -295,7 +299,6 @@
                 document.getElementById('allergies').value = data.allergies || '';
                 document.getElementById('chronicDisease').value = data.chronicDisease || '';
                 if (data.organDonor) document.getElementById(data.organDonor).checked = true;
-                // document.getElementById('address').value = data.address;
 
             } catch (error) {
                 alert('Failed to fetch profile: ' + error.response.data.message);
@@ -307,6 +310,7 @@
             event.preventDefault(); // Prevent the form from submitting normally
 
             const token = localStorage.getItem('jwt');
+            const userId = localStorage.getItem('searchId');
 
             if (!token) {
                 alert('You are not logged in!');
@@ -325,6 +329,7 @@
 
             // Prepare data for POST request
             const data = {
+                userId,
                 suffers: suffers || undefined,
                 currentMedicine: currentMedicine || undefined,
                 surgicalHistory: surgicalHistory || undefined,
@@ -344,7 +349,7 @@
 
                 if (response) {
                     alert('Saved successfully')
-                    window.location.href = 'profile.html'; // Change this URL to your desired page
+                    window.location.href = 'searchUser.html'; // Change this URL to your desired page
                 }
             } catch (error) {
                 // Handle error

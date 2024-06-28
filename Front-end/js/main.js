@@ -96,3 +96,15 @@
     
 })(jQuery);
 
+document.addEventListener('DOMContentLoaded', function(){
+    const admin = localStorage.getItem('au');
+    if(admin){
+        document.getElementById('searchBtn').innerHTML=
+        `
+        <a href="SearchUser.html"><i class="fa fa-search"></i></a>
+        
+        `
+    
+    }
+
+})
