@@ -84,3 +84,15 @@ export const userProPic = asyncHandler(async (req, res, next) => {
         { profilePic: req.file.dest }, { new: true })
     return res.status(201).json({ message: "Done", user })
 }) 
+
+//medicalTests multer
+export const medicalTests = asyncHandler(async (req, res, next) => {
+
+    if (!req.file) {
+        return next(new Error("Image is required", { cause: 409 }))
+    }
+
+    const user = await userModel.findByIdAndUpdate(req.user._id,
+        { medicalTests: req.file.dest }, { new: true })
+    return res.status(201).json({ message: "Done", user })
+}) 

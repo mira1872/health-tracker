@@ -39,3 +39,7 @@ export const getAdminData = joi.object({
 export const userProPic = joi.object({
     file: generalFields.file
 })
+
+export const medicalTests = joi.object({
+    file: generalFields.file
+})
