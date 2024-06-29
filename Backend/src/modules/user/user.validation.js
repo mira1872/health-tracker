@@ -28,7 +28,7 @@ export const getAdminData = joi.object({
     currentMedicine: joi.string(),
     surgicalHistory: joi.array().items({
         surgeryType: joi.string(),
-        dateOfSurgery: joi.string(),
+        dateOfSurgery: joi.date(),
     }),
 
     allergies: joi.string(),
