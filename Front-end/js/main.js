@@ -104,4 +104,8 @@ document.addEventListener('DOMContentLoaded', function(){
             searchBtn.innerHTML = `<a href="SearchUser.html"><i class="fa fa-search"></i></a>`;
         }
     }
+    const userPic = localStorage.getItem('userPic');
+    console.log("🚀 ~ document.addEventListener ~ userPic:", userPic)
+    document.getElementById('navUserPic').src = userPic ? `http://localhost:5000/${userPic}` : 'img/defaultProfilePic.jpg';
+    document.getElementById('userPic').src = userPic ? `http://localhost:5000/${userPic}` : 'img/defaultProfilePic.jpg';
 })

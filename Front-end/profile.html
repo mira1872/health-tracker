@@ -88,9 +88,8 @@
       </h2>
     </a>
 
-    <div class="ms-auto text-end mx-2" 
-id="searchBtn" style="flex-grow: 1;">
-      
+    <div class="ms-auto text-end mx-2" id="searchBtn" style="flex-grow: 1;">
+
     </div>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
@@ -109,7 +108,7 @@ id="searchBtn" style="flex-grow: 1;">
         <a href="about.html" class="nav-item nav-link">About Us</a>
         <div class="nav-item dropdown">
           <a href="#" class="nav-link " data-bs-toggle="dropdown">
-            <img src="img/profileTest.jpg" alt="Custom Icon" class="icon-img me-3" style="max-height: 40px;">
+            <img src="img/defaultProfilePic.jpg" id="navUserPic" alt="Custom Icon" class="rounded-circle icon-img me-3" style="max-height: 40px;">
           </a>
           <div class="dropdown-menu rounded-0 rounded-bottom m-0">
             <a href="profile.html" class="dropdown-item">Profile</a>
@@ -130,7 +129,7 @@ id="searchBtn" style="flex-grow: 1;">
         <div class="card mb-3">
           <div class="card-header">
             <div style="display: inline-block; width: 100px; height: 100px">
-              <img style="object-fit: cover; width: 100%; height: 100%" src="img/profileTest.jpg" alt="Jane Moore"
+              <img id="userPic" style="object-fit: cover; width: 100%; height: 100%" src="img/defaultProfilePic.jpg" alt="Jane Moore"
                 class="rounded-circle ">
             </div>
             <strong id="username" style="display: inline-block ; text-transform: capitalize;"> </strong>
@@ -149,33 +148,38 @@ id="searchBtn" style="flex-grow: 1;">
         </div>
         <div class="card mb-4">
           <div class="card-header">
-            <h4 class="card-title"> Relative <a href="relativeInfoE.html"><i class="fas fa-pen small"></i></a> </h4>
+            <h4 class="card-title"> Surgical History: <a href="relativeInfoE.html"><i class="fas fa-pen small"></i></a> </h4>
           </div>
           <div class="card-body">
-            <div class="col-md-12 mb-2">
-              <h5 style="display: inline; text-transform: capitalize;" id="rel1name">
+            <div class="col-md-4 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel1name" class="mb-2">
               </h5>
-              <p style="display: inline;" id="rel1id"></p>
+              <p class="mb-2" id="rel1id"></p>
+              <p id="rel1phone"></p>
             </div>
-            <div class="col-md-12 mb-2">
-              <h5 style="display: inline; text-transform: capitalize;" id="rel2name">
+            <div class="col-md-4 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel2name" class="mb-2">
               </h5>
-              <p style="display: inline;" id="rel2id"></p>
+              <p class="mb-2" id="rel2id"></p>
+              <p id="rel2phone"></p>
             </div>
-            <div class="col-md-12 mb-2">
-              <h5 style="display: inline; text-transform: capitalize;" id="rel3name">
+            <div class="col-md-4 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel3name" class="mb-2">
               </h5>
-              <p style="display: inline;" id="rel3id"></p>
+              <p class="mb-2" id="rel3id"></p>
+              <p id="rel3phone"></p>
             </div>
-            <div class="col-md-12 mb-2">
-              <h5 style="display: inline; text-transform: capitalize;" id="rel4name">
+            <div class="col-md-4 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel4name" class="mb-2">
               </h5>
-              <p style="display: inline;" id="rel4id"></p>
+              <p class="mb-2" id="rel4id"></p>
+              <p id="rel4phone"></p>
             </div>
-            <div class="col-md-12 mb-2">
-              <h5 style="display: inline; text-transform: capitalize;" id="rel5name">
+            <div class="col-md-4 mb-2">
+              <h5 style="display: inline; text-transform: capitalize;" id="rel5name" class="mb-2">
               </h5>
-              <p style="display: inline;" id="rel5id"></p>
+              <p class="mb-2" id="rel5id"></p>
+              <p id="rel5phone"></p>
             </div>
           </div>
         </div>
@@ -208,7 +212,7 @@ id="searchBtn" style="flex-grow: 1;">
             </div>
           </div>
         </div>
-        <div class="">
+        <div class="mb-3">
           <div class="card">
             <div class="card-header">
               <h4 class="card-title">Medical Info/history </h4>
@@ -226,9 +230,12 @@ id="searchBtn" style="flex-grow: 1;">
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>Surgical History:
-                  <h5 id="surgicalHistory"></h5>
-                  </p>
+                  <p>Surgical History:</p>
+                  <span id="surgery1type"></span>
+                  <span id="surgery1date"></span>
+                  
+                  <span id="surgery2type"></span>
+                  <span id="surgery2date"></span>
                 </div>
                 <div class="col-md-4">
                   <p>Allergies:
@@ -245,6 +252,22 @@ id="searchBtn" style="flex-grow: 1;">
                   <h5 id="organDonor"></h5>
                   </p>
                 </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title"> Upload file medical tests <a href="testFiles.html"><i class="fas fa-pen small"></i></a></h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div>
+                  
+                </div>
+                
 
               </div>
             </div>
@@ -286,14 +309,7 @@ id="searchBtn" style="flex-grow: 1;">
             <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="text-light mb-4">NFC TAG</h5>
-          <a class="btn btn-link" href="">Cardiology</a>
-          <a class="btn btn-link" href="">Pulmonary</a>
-          <a class="btn btn-link" href="">Neurology</a>
-          <a class="btn btn-link" href="">Orthopedics</a>
-          <a class="btn btn-link" href="">Laboratory</a>
-        </div>
+
         <div class="col-lg-3 col-md-6">
           <h5 class="text-light mb-4">Quick Links</h5>
           <a class="btn btn-link" href="">About Us</a>
@@ -302,14 +318,7 @@ id="searchBtn" style="flex-grow: 1;">
           <a class="btn btn-link" href="">Terms & Condition</a>
           <a class="btn btn-link" href="">Support</a>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="text-light mb-4">Newsletter</h5>
-          <p class="f">Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-          <div class="position-relative mx-auto" style="max-width: 400px;">
-            <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-          </div>
-        </div>
+
       </div>
     </div>
     <div class="container">
@@ -374,22 +383,24 @@ id="searchBtn" style="flex-grow: 1;">
 
         for (let i = 1; i <= data.family.length; i++) {
           document.getElementById(`rel${i}name`).textContent = data.family[i - 1].rev + ": ";
-          document.getElementById(`rel${i}id`).textContent = data.family[i - 1].nationalID;
+          document.getElementById(`rel${i}id`).textContent = "National ID: " + data.family[i - 1].nationalID;
+          document.getElementById(`rel${i}phone`).textContent = "Phone: " + data.family[i - 1].revPhone;
         }
         document.getElementById('suffers').textContent = data.suffers || '';
         document.getElementById('currentMedicine').textContent = data.currentMedicine || '';
-        document.getElementById('surgicalHistory').textContent = data.surgicalHistory || '';
+        for (let i = 1; i <= data.surgicalHistory.length; i++) {
+          document.getElementById(`surgery${i}type`).textContent = data.surgicalHistory[i - 1].surgeryType + ": ";
+          document.getElementById(`surgery${i}date`).textContent = " Date: " + data.surgicalHistory[i - 1].dateOfSurgery.substr(0, 10) || '';
+        };
         document.getElementById('allergies').textContent = data.allergies || '';
         document.getElementById('chronicDisease').textContent = data.chronicDisease || '';
-        document.getElementById('weight').textContent = data.weight  || '';
+        document.getElementById('weight').textContent = data.weight || '';
         document.getElementById('height').textContent = data.height || '';
         document.getElementById('bloodType').textContent = data.bloodType || '';
         document.getElementById('organDonor').textContent = data.organDonor ? 'Yes' : 'No';
-        //if (data.bloodType) document.getElementById(data.bloodType).textContent = true;
-        //if (data.organDonor) document.getElementById(data.organDonor).textContent = true;
-
+        document.getElementById('userPic').src = data.profilePic ? `http://localhost:5000/${data.profilePic}` : './img/defaultProfilePic.jpg';
       } catch (error) {
-        alert('Failed to fetch profile: ' + error.response.data.message);
+        console.log(error);
       }
     });
 

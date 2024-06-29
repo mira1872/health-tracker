@@ -110,7 +110,7 @@ id="searchBtn" style="flex-grow: 1;">
                 <a href="about.html" class="nav-item nav-link">About Us</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link " data-bs-toggle="dropdown">
-                        <img src="img/profileTest.jpg" alt="Custom Icon" class="icon-img me-3"
+                        <img src="img/defaultProfilePic.jpg" id="navUserPic" alt="Custom Icon" class="rounded-circle icon-img me-3"
                             style="max-height: 40px;">
                     </a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
@@ -147,11 +147,86 @@ id="searchBtn" style="flex-grow: 1;">
                                     <label for="currentMedicine">Enter current medicine</label>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <!--<div class="col-12">
                                 <div class="form-floating ">
                                     <input type="text" class="form-control" name="surgicalHistory" id="surgicalHistory"
                                         placeholder="Surgical history">
                                     <label for="surgicalHistory">Enter surgical history</label>
+                                </div>
+                            </div>-->
+                            <div class="col-12">
+                                <p class="mt-3">Surgical History 1</p>
+                                <div class="form-floating ">
+                                    <input type="text" class="form-control" name="surgery1type" id="surgery1type"
+                                        placeholder="Name">
+                                    <label for="surgery1type">Surgical History Type</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating ">
+                                    <input type="date" class="form-control" name="surgery1date" id="surgery1date"
+                                        placeholder="National ID">
+                                    <label for="surgerytype">Surgical History Date</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <p class="mt-3">Surgical History 2</p>
+                                <div class="form-floating ">
+                                    <input type="text" class="form-control" name="surgery2type" id="surgery2type"
+                                        placeholder="Name">
+                                    <label for="surgery2type">Surgical History Type</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating ">
+                                    <input type="date" class="form-control" name="surgery2date" id="surgery2date"
+                                        placeholder="National ID">
+                                    <label for="surgerytype">Surgical History Date</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <p class="mt-3">Surgical History 3</p>
+                                <div class="form-floating ">
+                                    <input type="text" class="form-control" name="surgery3type" id="surgery3type"
+                                        placeholder="Name">
+                                    <label for="surgery3type">Surgical History Type</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating ">
+                                    <input type="date" class="form-control" name="surgery3date" id="surgery3date"
+                                        placeholder="National ID">
+                                    <label for="surgerytype">Surgical History Date</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <p class="mt-3">Surgical History 4</p>
+                                <div class="form-floating ">
+                                    <input type="text" class="form-control" name="surgery4type" id="surgery4type"
+                                        placeholder="Name">
+                                    <label for="surgery4type">Surgical History Type</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating ">
+                                    <input type="date" class="form-control"  name="surgery4date" id="surgery4date"
+                                        placeholder="National ID">
+                                    <label for="surgerytype">Surgical History Date</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <p class="mt-3">Surgical History 5</p>
+                                <div class="form-floating ">
+                                    <input type="text" class="form-control" name="surgery5type" id="surgery5type"
+                                        placeholder="Name">
+                                    <label for="surgery5type">Surgical History Type</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating ">
+                                    <input type="date" class="form-control"  name="surgery5date" id="surgery5date"
+                                        placeholder="National ID">
+                                    <label for="surgeryType">Surgical History Date</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -293,12 +368,23 @@ id="searchBtn" style="flex-grow: 1;">
                 });
 
                 const data = response.data.users;
+                
                 document.getElementById('suffers').value = data.suffers || '';
                 document.getElementById('currentMedicine').value = data.currentMedicine || '';
-                document.getElementById('surgicalHistory').value = data.surgicalHistory || '';
+                //document.getElementById('surgicalHistory').value = data.surgicalHistory || '';
                 document.getElementById('allergies').value = data.allergies || '';
                 document.getElementById('chronicDisease').value = data.chronicDisease || '';
                 if (data.organDonor) document.getElementById(data.organDonor).checked = true;
+
+                const surgical = data.surgicalHistory
+                if (Array.isArray(surgical) && surgical.length > 0) {
+                    // For the length of family array, get relative inputs
+                    // and add relative names and ids to it
+                    for (let i = 1; i <= surgical.length; i++) {
+                        document.getElementById(`surgery${i}type`).value = surgical[i - 1].surgeryType || '';
+                        document.getElementById(`surgery${i}date`).value = surgical[i - 1].dateOfSurgery.substr(0, 10) || '';
+                    }
+                }
 
             } catch (error) {
                 alert('Failed to fetch profile: ' + error.response.data.message);
@@ -317,22 +403,33 @@ id="searchBtn" style="flex-grow: 1;">
                 window.location.href = 'index.html';
                 return;
             }
-
+            const surgicalInputCount = event.target.querySelectorAll('input').length / 2
             // Get form data
             const formData = new FormData(this);
             const suffers = formData.get('suffers');
             const currentMedicine = formData.get('currentMedicine');
-            const surgicalHistory = formData.get('surgicalHistory');
+            //const surgicalHistory = formData.get('surgicalHistory');
             const allergies = formData.get('allergies');
             const chronicDisease = formData.get('chronicDisease');
             const organDonor = formData.get('organDonor');
+            const surgical = [];
+
+            for (let i = 1; i <= surgicalInputCount; i++) {
+                if (!formData.get(`surgery${i}type`)) continue;
+                surgical.push(
+                    {
+                        surgeryType: formData.get(`surgery${i}type`),
+                        dateOfSurgery: formData.get(`surgery${i}date`)
+                    }
+                )
+            }
 
             // Prepare data for POST request
             const data = {
                 userId,
                 suffers: suffers || undefined,
                 currentMedicine: currentMedicine || undefined,
-                surgicalHistory: surgicalHistory || undefined,
+                surgicalHistory: surgical || undefined,
                 allergies: allergies || undefined,
                 chronicDisease: chronicDisease || undefined,
                 organDonor: organDonor || undefined
