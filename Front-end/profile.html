@@ -230,18 +230,24 @@
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p>Surgical History:</p>
-                  <span id="surgery1type"></span>
-                  <span id="surgery1date"></span>
-                  
-                  <span id="surgery2type"></span>
-                  <span id="surgery2date"></span>
-                </div>
-                <div class="col-md-4">
                   <p>Allergies:
                   <h5 id="allergies"></h5>
                   </p>
                 </div>
+                <div class="col-md-4">
+                  <p>Surgical History:</p>
+                  <h5  id="surgery1type"></h5>
+                  <span class="mb-3" style="font-weight: bold" id="surgery1date"></span>
+                  <h5  id="surgery2type"></h5>
+                  <span class="mb-3" style="font-weight: bold" id="surgery2date"></span>
+                  <h5  id="surgery3type"></h5>
+                  <span class="mb-3" style="font-weight: bold" id="surgery3date"></span>
+                  <h5  id="surgery4type"></h5>
+                  <span class="mb-3" style="font-weight: bold" id="surgery4date"></span>
+                  <h5  id="surgery5type"></h5>
+                  <span class="mb-3" style="font-weight: bold" id="surgery5date"></span>
+                </div>
+                
                 <div class="col-md-4">
                   <p>Chronic Disease:
                   <h5 id="chronicDisease"></h5>
@@ -386,17 +392,17 @@
           document.getElementById(`rel${i}id`).textContent = "National ID: " + data.family[i - 1].nationalID;
           document.getElementById(`rel${i}phone`).textContent = "Phone: " + data.family[i - 1].revPhone;
         }
-        document.getElementById('suffers').textContent = data.suffers || '';
-        document.getElementById('currentMedicine').textContent = data.currentMedicine || '';
+        document.getElementById('suffers').textContent = data.suffers || 'N/A';
+        document.getElementById('currentMedicine').textContent = data.currentMedicine || 'N/A';
         for (let i = 1; i <= data.surgicalHistory.length; i++) {
-          document.getElementById(`surgery${i}type`).textContent = data.surgicalHistory[i - 1].surgeryType + ": ";
+          document.getElementById(`surgery${i}type`).textContent = data.surgicalHistory[i - 1].surgeryType || 'N/A';
           document.getElementById(`surgery${i}date`).textContent = " Date: " + data.surgicalHistory[i - 1].dateOfSurgery.substr(0, 10) || '';
         };
-        document.getElementById('allergies').textContent = data.allergies || '';
-        document.getElementById('chronicDisease').textContent = data.chronicDisease || '';
-        document.getElementById('weight').textContent = data.weight || '';
-        document.getElementById('height').textContent = data.height || '';
-        document.getElementById('bloodType').textContent = data.bloodType || '';
+        document.getElementById('allergies').textContent = data.allergies || 'N/A';
+        document.getElementById('chronicDisease').textContent = data.chronicDisease || 'N/A';
+        document.getElementById('weight').textContent = data.weight || 'N/A';
+        document.getElementById('height').textContent = data.height || 'N/A';
+        document.getElementById('bloodType').textContent = data.bloodType || 'N/A';
         document.getElementById('organDonor').textContent = data.organDonor ? 'Yes' : 'No';
         document.getElementById('userPic').src = data.profilePic ? `http://localhost:5000/${data.profilePic}` : './img/defaultProfilePic.jpg';
       } catch (error) {

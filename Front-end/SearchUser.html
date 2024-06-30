@@ -364,6 +364,11 @@
                           </p>
                         </div>
                         <div class="col-md-4">
+                          <p>Allergies:
+                          <h5 id="allergies">${userData.allergies || 'N/A'}</h5>
+                          </p>
+                        </div>
+                        <div class="col-md-4">
                           <p>Surgical History:
                           <h5 id="surgicalHistory">
                     ${Array.isArray(userData.surgicalHistory) ? userData.surgicalHistory.map((Surgery) => {
@@ -381,11 +386,7 @@
           </h5>
                           </p>
                         </div>
-                        <div class="col-md-4">
-                          <p>Allergies:
-                          <h5 id="allergies">${userData.allergies || 'N/A'}</h5>
-                          </p>
-                        </div>
+                        
                         <div class="col-md-4">
                           <p>Chronic Disease:
                           <h5 id="chronicDisease">${userData.chronicDisease || 'N/A'}</h5>
