@@ -256,7 +256,7 @@
         .catch(function (error) {
           localStorage.removeItem('searchId');
           localStorage.removeItem('searchNationalId');
-          alert('Failed to fetch profile', error)
+          alert('Failed to fetch profile' + error)
         })
     }
 
@@ -299,17 +299,19 @@
                     <h4 class="card-title"> Relative </h4>
                   </div>
                   <div class="card-body">
-                    ${userData.family.map((relative) => {
-            return relative ?
-              `<div class="col-md-12 mb-2">
+                    ${Array.isArray(userData.family) ?
+            userData.family.map((relative) => {
+              return relative ?
+                `<div class="col-md-12 mb-2">
                           <h5 style="text-transform: capitalize;">
                           ${relative.rev || ''}</h5>
                           <p class="mb-2"><span style="font-weight: bold;">ID: </span>${relative.nationalID || ''}</p>
                           <p><span style="font-weight: bold;">Phone: </span>${relative.revPhone || ''}</p>
                         </div>`
-              :
-              ''
-          }).join('')
+                :
+                ''
+            }).join('')
+            : ''
           }
                   </div>
                 </div>
@@ -364,7 +366,7 @@
                         <div class="col-md-4">
                           <p>Surgical History:
                           <h5 id="surgicalHistory">
-                    ${userData.surgicalHistory.map((Surgery) => {
+                    ${Array.isArray(userData.surgicalHistory) ? userData.surgicalHistory.map((Surgery) => {
             return Surgery ?
               `<div class="col-md-12 mb-2">
                           <h5 style="text-transform: capitalize;">
@@ -374,6 +376,7 @@
               :
               ''
           }).join('')
+            : 'N/A'
           }
           </h5>
                           </p>
