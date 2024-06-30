@@ -300,19 +300,19 @@
                   </div>
                   <div class="card-body">
                     ${Array.isArray(userData.family) ?
-            userData.family.map((relative) => {
-              return relative ?
-                `<div class="col-md-12 mb-2">
-                          <h5 style="text-transform: capitalize;">
-                          ${relative.rev || ''}</h5>
-                          <p class="mb-2"><span style="font-weight: bold;">ID: </span>${relative.nationalID || ''}</p>
-                          <p><span style="font-weight: bold;">Phone: </span>${relative.revPhone || ''}</p>
-                        </div>`
-                :
-                ''
-            }).join('')
-            : ''
-          }
+                    userData.family.map((relative) => {
+                      return relative ?
+                              `<div class="col-md-12 mb-2">
+                                        <h5 style="text-transform: capitalize;">
+                                        ${relative.rev || ''}</h5>
+                                        <p class="mb-2"><span style="font-weight: bold;">ID: </span>${relative.nationalID || ''}</p>
+                                        <p><span style="font-weight: bold;">Phone: </span>${relative.revPhone || ''}</p>
+                                      </div>`
+                              :
+                              ''
+                          }).join('')
+                          : ''
+                        }
                   </div>
                 </div>
               </div>
@@ -345,7 +345,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="">
+                <div class="mb-3">
                   <div class="card">
                     <div class="card-header">
                       <h4 class="card-title">Medical Info/history <a href="MedicalEdit.html"><i
@@ -370,20 +370,20 @@
                         </div>
                         <div class="col-md-4">
                           <p>Surgical History:
-                          <h5 id="surgicalHistory">
-                    ${Array.isArray(userData.surgicalHistory) ? userData.surgicalHistory.map((Surgery) => {
-            return Surgery ?
-              `<div class="col-md-12 mb-2">
-                          <h5 style="text-transform: capitalize;">
-                          ${Surgery.surgeryType || ''}</h5>
-                          <p class="mb-2"><span style="font-weight: bold;">Date: </span>${Surgery.dateOfSurgery || ''}</p>
-                        </div>`
-              :
-              ''
-          }).join('')
-            : 'N/A'
-          }
-          </h5>
+                          <div id="surgicalHistory">
+                        ${Array.isArray(userData.surgicalHistory) ? userData.surgicalHistory.map((Surgery) => {
+                              return Surgery ?
+                              `<div class="col-md-12 mb-2">
+                                <h5 style="text-transform: capitalize;">
+                                ${Surgery.surgeryType || ''}</h5>
+                                <p class="mb-2"><span style="font-weight: bold;">Date: </span>${Surgery.dateOfSurgery || ''}</p>
+                            </div>`
+                            :
+                            ''
+                            }).join('')
+                        : 'N/A'
+                        }
+                    </div>
                           </p>
                         </div>
                         
@@ -396,6 +396,26 @@
                           <p>Organ Donor:
                           <h5 id="organDonor">${userData.organDonor ? 'Yes' : 'No'}</h5>
                           </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title"> Uploaded medical tests</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div id="uploadedDocs">
+                          ${Array.isArray(userData.medicalTests) ?
+                            userData.medicalTests.map((test, index) => {
+                              return `<p><a href="http://localhost:5000/${test}" target="_blank" class="mb-3">${test.split('_')[test.split('_').length - 1]}</a></p>`
+                            }
+                            ).join('')
+                            : 'No files'
+                          }
                         </div>
                       </div>
                     </div>

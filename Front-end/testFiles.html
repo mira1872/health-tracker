@@ -232,7 +232,46 @@ id="searchBtn" style="flex-grow: 1;">
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+<<<<<<< HEAD
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const token = localStorage.getItem('jwt');
+
+            if (!token) {
+                alert('You are not logged in!');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const medTestFormData = new FormData();
+            const fileInput = document.getElementById('file');
+            const files = fileInput.files;
+
+            for (let i = 0; i < files.length; i++) {
+                medTestFormData.append('file', fileInput.files[i]);
+            }
+
+            const doucmentResponse = await axios.post('http://localhost:5000/user/medicalTests', medTestFormData, {
+                headers: {
+                    'Authorization': `SAmir@__${token}`
+                }
+            }).then(function (doucmentResponse) {
+                alert('Doucment saved successfully!');
+                // window.location.href = 'profile.html'; // Change this URL to your desired page
+            }).catch(function (error) {
+                alert('Failed updating doucments');
+                // window.location.href = 'profile.html'; // Change this URL to your desired page
+            });
+
+        });
+
+    </script>
+
+=======
     
+>>>>>>> parent of 649599f (Upload files back and front)
     <script src="js/logout.js"></script>
 </body>
 
