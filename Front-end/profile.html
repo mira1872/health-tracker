@@ -389,13 +389,8 @@
 
         for (let i = 1; i <= data.family.length; i++) {
           document.getElementById(`rel${i}name`).textContent = data.family[i - 1].rev + ": ";
-<<<<<<< HEAD
           document.getElementById(`rel${i}id`).textContent = "National ID: " + data.family[i - 1].nationalID || '';
           document.getElementById(`rel${i}phone`).textContent = "Phone: " + data.family[i - 1].revPhone || '';
-=======
-          document.getElementById(`rel${i}id`).textContent = "National ID: " + data.family[i - 1].nationalID;
-          document.getElementById(`rel${i}phone`).textContent = "Phone: " + data.family[i - 1].revPhone;
->>>>>>> parent of 649599f (Upload files back and front)
         }
         document.getElementById('suffers').textContent = data.suffers || 'N/A';
         document.getElementById('currentMedicine').textContent = data.currentMedicine || 'N/A';
@@ -408,7 +403,6 @@
         document.getElementById('weight').textContent = data.weight || 'N/A';
         document.getElementById('height').textContent = data.height || 'N/A';
         document.getElementById('bloodType').textContent = data.bloodType || 'N/A';
-<<<<<<< HEAD
         document.getElementById('suffers').textContent = data.suffers || 'N/A';
         document.getElementById('currentMedicine').textContent = data.currentMedicine || 'N/A';
         document.getElementById('allergies').textContent = data.allergies || 'N/A';
@@ -433,10 +427,6 @@
             document.getElementById(`surgery${i}date`).textContent = " Date: " + data.surgicalHistory[i - 1].dateOfSurgery.substr(0, 10) || '';
           }
         };
-=======
-        document.getElementById('organDonor').textContent = data.organDonor ? 'Yes' : 'No';
-        document.getElementById('userPic').src = data.profilePic ? `http://localhost:5000/${data.profilePic}` : './img/defaultProfilePic.jpg';
->>>>>>> parent of 649599f (Upload files back and front)
       } catch (error) {
         console.log(error);
       }

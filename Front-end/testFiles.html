@@ -131,10 +131,10 @@ id="searchBtn" style="flex-grow: 1;">
             <div class="col-md-6 offset-md-3 wow fadeIn" data-wow-delay="0.1s">
                 <div class="bg-light rounded p-5 bg-light">
                     <h3 class="mb-4">Medical documents</h3>
-                    <form id="testsForm">
+                    <form id="uploadForm">
                         <div class="row g-3">
                             
-
+                            <input type="file" id="file" name="file" />
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Save change</button>
                             </div>
@@ -232,7 +232,6 @@ id="searchBtn" style="flex-grow: 1;">
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-<<<<<<< HEAD
     <script>
         document.getElementById('uploadForm').addEventListener('submit', async function (event) {
             event.preventDefault(); // Prevent the form from submitting normally
@@ -259,19 +258,16 @@ id="searchBtn" style="flex-grow: 1;">
                 }
             }).then(function (doucmentResponse) {
                 alert('Doucment saved successfully!');
-                // window.location.href = 'profile.html'; // Change this URL to your desired page
+                window.location.href = 'profile.html'; // Change this URL to your desired page
             }).catch(function (error) {
                 alert('Failed updating doucments');
-                // window.location.href = 'profile.html'; // Change this URL to your desired page
+                window.location.href = 'profile.html'; // Change this URL to your desired page
             });
 
         });
 
     </script>
 
-=======
-    
->>>>>>> parent of 649599f (Upload files back and front)
     <script src="js/logout.js"></script>
 </body>
 
