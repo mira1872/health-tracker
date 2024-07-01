@@ -1,8 +1,9 @@
 /********** Template CSS **********/
 :root {
-    --primary: #95CCC5;
+    --primary: #0033a0;
     --light: #EFF5FF;
-    --dark: #95CCC5;
+    --dark: #0033a0;
+    
 }
 
 .fw-medium {
@@ -38,6 +39,12 @@
     transition: opacity .5s ease-out, visibility 0s linear 0s;
     visibility: visible;
     opacity: 1;
+}
+ @font-face {
+    font-family: 'PingFangSC';
+    src: url('PingFang-SC-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 
@@ -84,6 +91,10 @@
 
 
 /*** Navbar ***/
+nav{
+    
+    font-family: 'PingFangSC', sans-serif;
+}
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
@@ -537,7 +548,7 @@
   
   .icon-box i {
     font-size: 20px;
-    color: #5289DD;
+    color: rgb(0, 51, 160);
   }
   
   .icon-box p {
@@ -549,6 +560,8 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 25px;
     background: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff);
+    
+    font-family: 'PingFangSC', sans-serif;
   }
   
   .input-group-text {
@@ -571,22 +584,40 @@
  }
  h2 {
     color: #5289DD;
+    font-family: 'PingFangSC', sans-serif;
  }
+
  body{
     background-color: #DFECFF;
+    font-family: 'PingFangSC', sans-serif;
  }
+ 
  h3  {
-    color: #7692A7;
+    color: #1B2C51;
+    
+    font-family: 'PingFangSC', sans-serif;
  }
  p{
     color: #7692A7;
+    
+    font-family: 'PingFangSC', sans-serif;
  }
  p.f{
     color: #FFFFFF;
+    font-family: 'PingFangSC', sans-serif;
  }
  strong{
     font-size: x-large;
     font-style: bold;
     color: #5289DD;
+    font-family: 'PingFangSC', sans-serif;
  }
+ h5 , h4 ,h1 , a{
+    font-family: 'PingFangSC', sans-serif;
+}
+a , i{
+    
+    color: #0033a0;
+}
+
  
