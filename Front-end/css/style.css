@@ -263,6 +263,7 @@ nav{
 /*** Service ***/
 .service-item {
     transition: .5s;
+    
 }
 
 .service-item:hover {
@@ -532,8 +533,8 @@ nav{
     color: var(--primary);
 }
 .bg{
-    background: url('../img/BG.jpg') no-repeat center fixed;
-    background-size: cover;
+    background: url('../img/bgLogo.jpeg') no-repeat center fixed;
+    background-size:cover;
     margin: 0;
     padding: 0;
     display: flex;
@@ -585,11 +586,15 @@ nav{
  h2 {
     color: #5289DD;
     font-family: 'PingFangSC', sans-serif;
+
  }
 
  body{
-    background-color: #DFECFF;
+    /**background-color: #DFECFF;*/
     font-family: 'PingFangSC', sans-serif;
+    background: url('../img/backg2.jpeg') no-repeat center fixed  ;
+    background-size: cover;
+    
  }
  
  h3  {
