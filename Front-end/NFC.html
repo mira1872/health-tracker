@@ -35,7 +35,7 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
-<body>
+<body class="bg">
   <!-- Spinner Start -->
   <div id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -85,8 +85,7 @@
   <div class="container pt-5 ">
     <div class="row mb-4 col-12">
         <div class="col-md-6 offset-md-3 wow fadeIn">
-          <h3 class="mb-4  align-items-center">رقم الاسعاف: 123</h3>
-          <div class="card mb-3">
+          <div class="card mb-3 mt-5">
             <div class="card-header">
               
               <strong id="username" style="display: inline-block ; text-transform: capitalize;"> </strong>
@@ -115,23 +114,36 @@
                   </div>
                 </li>
                 <li class="list-group-item">
+                  <p class="mb-2">Surgical History:</p>
+                  <h5 id="surgery1type" style="display: inline;"></h5>
+                  <span class="mb-3" style="font-weight: bold; display: inline;" id="surgery1date"></span>
+                  <h5 id="surgery2type" style="display: inline;"></h5>
+                  <span class="mb-3" style="font-weight: bold; display: inline;" id="surgery2date"></span>
+                  <h5 id="surgery3type" style="display: inline;"></h5>
+                  <span class="mb-3" style="font-weight: bold; display: inline;" id="surgery3date"></span>
+                  <h5 id="surgery4type" style="display: inline;"></h5>
+                  <span class="mb-3" style="font-weight: bold; display: inline;" id="surgery4date"></span>
+                  <h5 id="surgery5type" style="display: inline;"></h5>
+                  <span class="mb-3" style="font-weight: bold; display: inline;" id="surgery5date"></span>
+                </li>
+                <li class="list-group-item">
                   <p style="display: inline;" >Blood Type: </p>
                   <h5 style="display: inline;" id="bloodType"></h5>
                 </li>
                 <li class="list-group-item">
-                  <p style="display: inline;">Suffers:</p>
+                  <p style="display: inline;">Suffers: </p>
                   <h5 style="display: inline;" id="suffers"></h5>
                 </li>
                 <li class="list-group-item">
-                  <p style="display: inline;">Current Medicine:</p>
+                  <p style="display: inline;">Current Medicine: </p>
                   <h5 style="display: inline;" id="currentMedicine"></h5>
                 </li>
                 <li class="list-group-item">
-                  <p style="display: inline;">Allergies:</p>
+                  <p style="display: inline;">Allergies: </p>
                   <h5 style="display: inline;" id="allergies"></h5>
                 </li>
                 <li class="list-group-item">
-                  <p style="display: inline;">Chronic Disease:</p>
+                  <p style="display: inline;">Chronic Disease: </p>
                   <h5 style="display: inline;" id="chronicDisease"></h5>
                 </li>
               </ul>
@@ -197,15 +209,19 @@
           document.getElementById(`rel${i}name`).textContent = data.family[i - 1].rev + ": ";
           document.getElementById(`rel${i}phone`).textContent = data.family[i - 1].revPhone;
         }
-        document.getElementById('suffers').textContent = data.suffers || '';
-        document.getElementById('currentMedicine').textContent = data.currentMedicine || '';
-        //document.getElementById('surgicalHistory').value = data.surgicalHistory || '';
-        document.getElementById('allergies').textContent = data.allergies || '';
-        document.getElementById('chronicDisease').textContent = data.chronicDisease || '';
+        document.getElementById('suffers').textContent = data.suffers || 'N/A';
+        document.getElementById('currentMedicine').textContent = data.currentMedicine || 'N/A';
+        //document.getElementById('surgicalHistory').textContent = data.surgicalHistory || '';
+        document.getElementById('allergies').textContent = data.allergies || 'N/A';
+        document.getElementById('chronicDisease').textContent = data.chronicDisease || 'N/A';
         //if (data.organDonor) document.getElementById(data.organDonor).checked = true;
         //document.getElementById('weight').value = data.weight  || '';
         //document.getElementById('height').value = data.height || '';
-        document.getElementById('bloodType').textContent = data.bloodType || '';
+        document.getElementById('bloodType').textContent = data.bloodType || 'N/A';
+        for (let i = 1; i <= data.surgicalHistory.length; i++) {
+          document.getElementById(`surgery${i}type`).textContent = data.surgicalHistory[i - 1].surgeryType || 'N/A';
+          document.getElementById(`surgery${i}date`).textContent = " Date: " + data.surgicalHistory[i - 1].dateOfSurgery.substr(0, 10) || '';
+        };
 
       } catch (error) {
         alert('Failed to fetch profile: ' + error.response.data.message);
